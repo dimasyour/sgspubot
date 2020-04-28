@@ -53,20 +53,58 @@ def main():
                         UserPhoto200 = user_data[0]["photo_200"]
                         register_new_user(UserID, UserLastName, UserFirstName, UserSex, UserCountry, UserCity, UserDomain, UserPhoto200)
 
-                    if msg == "мои баллы":
+                    if msg in ('/start', 'начать', '📖 вернуться назад'):
                         vk.messages.send(
                             user_id=event.user_id,
-                            message="Привет!",
+                            message="Бот работает!",
                             keyboard=keyboard_start(),
                             random_id=random_id()
                         )
-                    elif msg == "ссылка":
-                        vk.messages.send(
-                            user_id=event.user_id,
-                            message="https://www.youtube.com/channel/UCCCcDxRXwTE-rtpcyMzxjAA?view_as=subscriber",
-                            keyboard=keyboard_start(),
-                            random_id=random_id()
-                        )
+                    elif msg in ('/my_ball', '📖 мои баллы'):
+                        if (get_user_ball_status(event.user_id) == 1):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="Ваши баллы: ",
+                                keyboard=keyboard_start(),
+                                random_id=random_id()
+                            )
+                        else:
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="⚠ Вы не добавили баллы!",
+                                keyboard=keyboard_add_ball(),
+                                random_id=random_id()
+                            )
+                    elif msg in ('/add_ball', '📖 добавить баллы', 'показать предыдущие предметы'):
+                        if (get_user_ball_status(event.user_id) == 1):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="Ваши баллы: ",
+                                keyboard=keyboard_start(),
+                                random_id=random_id()
+                            )
+                        else:
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🔰Выберите предмет, который хотите добавить!",
+                                keyboard=keyboard_subject_1(),
+                                random_id=random_id()
+                            )
+                    elif msg in ('/add_ball_2', '📖 добавить баллы 2', 'показать следующие предметы'):
+                        if (get_user_ball_status(event.user_id) == 1):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="Ваши баллы: ",
+                                keyboard=keyboard_start(),
+                                random_id=random_id()
+                            )
+                        else:
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🔰Выберите предмет, который хотите добавить!",
+                                keyboard=keyboard_subject_2(),
+                                random_id=random_id()
+                            )
                     else:
                         vk.messages.send(
                             user_id=event.user_id,

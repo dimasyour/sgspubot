@@ -15,9 +15,9 @@ def check_if_exists(user_id):
 #добавляет нового пользователя с его данными
 def register_new_user(UserID, UserLastName, UserFirstName, UserSex, UserCountry, UserCity, UserDomain, UserPhoto200):
 
-    new_user_param = (UserID, 1, 0)
+    new_user_param = (UserID, 1, 0, 0)
     print(new_user_param)
-    c.execute("INSERT INTO users (user_id, user_reg, user_admin) VALUES (?,?,?)", new_user_param)
+    c.execute("INSERT INTO users (user_id, user_reg, user_admin, user_ball) VALUES (?,?,?,?)", new_user_param)
     conn.commit()
 
     new_user_info_param = (UserID, UserLastName, UserFirstName, UserSex, UserCountry, UserCity, UserDomain, UserPhoto200)
@@ -28,6 +28,12 @@ def register_new_user(UserID, UserLastName, UserFirstName, UserSex, UserCountry,
 #получает значение из столбца статуса администратора (1 - админ, 0 - пользователь)
 def get_admin_status(user_id):
     c.execute("SELECT user_admin FROM users WHERE user_id = %d" % user_id)
+    result = c.fetchone()
+    return result[0]
+
+#получает значение из столбца статуса баллов (1 - добавил баллы, 0 - не добавил)
+def get_user_ball_status(user_id):
+    c.execute("SELECT user_ball FROM users WHERE user_id = %d" % user_id)
     result = c.fetchone()
     return result[0]
 
