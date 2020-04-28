@@ -22,7 +22,7 @@ def keyboard_subject_1():
     keyboard.add_line()
     keyboard.add_button('🧮 Профильная математика', VkKeyboardColor.PRIMARY)
     keyboard.add_line()
-    keyboard.add_button('🇷🇺 Русский', VkKeyboardColor.PRIMARY)
+    keyboard.add_button('🇷🇺 Русский язык', VkKeyboardColor.PRIMARY)
     keyboard.add_button('🏘 Обществознание', VkKeyboardColor.PRIMARY)
     keyboard.add_line()
     keyboard.add_button('🧬 Биология', VkKeyboardColor.PRIMARY)
@@ -44,4 +44,9 @@ def keyboard_subject_2():
     keyboard.add_button('🗺 География', VkKeyboardColor.PRIMARY)
     keyboard.add_line()
     keyboard.add_button('📖 Вернуться назад', VkKeyboardColor.NEGATIVE)
+    return keyboard.get_keyboard()
+
+def keyboard_insert_ball():
+    keyboard = VkKeyboard(False)
+    keyboard.add_button('📖 Назад к выбору предмета', VkKeyboardColor.NEGATIVE)
     return keyboard.get_keyboard()

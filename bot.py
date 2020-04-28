@@ -61,13 +61,22 @@ def main():
                             random_id=random_id()
                         )
                     elif msg in ('/my_ball', '📖 мои баллы'):
-                        if (get_user_ball_status(event.user_id) == 1):
+                        if (get_status_ball(event.user_id) == True):
                             vk.messages.send(
                                 user_id=event.user_id,
-                                message="Ваши баллы: ",
-                                keyboard=keyboard_start(),
+                                message="✅ Все ваши баллы указанны ниже: ",
+                                keyboard=keyboard_subject_1(),
                                 random_id=random_id()
                             )
+                            myballs = get_my_ball(event.user_id)
+                            i = 0
+                            for i in range(len(myballs)):
+                                vk.messages.send(
+                                    user_id=event.user_id,
+                                    message=myballs[i],
+                                    keyboard=keyboard_subject_1(),
+                                    random_id=random_id()
+                                )
                         else:
                             vk.messages.send(
                                 user_id=event.user_id,
@@ -76,11 +85,26 @@ def main():
                                 random_id=random_id()
                             )
                     elif msg in ('/add_ball', '📖 добавить баллы', 'показать предыдущие предметы'):
-                        if (get_user_ball_status(event.user_id) == 1):
+                        if (get_status_ball(event.user_id) == True):
                             vk.messages.send(
                                 user_id=event.user_id,
-                                message="Ваши баллы: ",
+                                message="✅ Все ваши баллы указанны ниже: ",
                                 keyboard=keyboard_start(),
+                                random_id=random_id()
+                            )
+                            myballs = get_my_ball(event.user_id)
+                            i = 0
+                            for i in range(len(myballs)):
+                                vk.messages.send(
+                                    user_id=event.user_id,
+                                    message=myballs[i],
+                                    keyboard=keyboard_start(),
+                                    random_id=random_id()
+                                )
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🔰Выберите предмет, который хотите добавить!",
+                                keyboard=keyboard_add_ball(),
                                 random_id=random_id()
                             )
                         else:
@@ -105,6 +129,112 @@ def main():
                                 keyboard=keyboard_subject_2(),
                                 random_id=random_id()
                             )
+                    elif event.text in ('🧮 Профильная математика', '🇷🇺 Русский язык', '🏘 Обществознание', '🧬 Биология', '⚛ Физика', '🏰 История', '💻 Информатика', '🧪 Химия', '📝 Литература', '🗺 География'):
+                        if (event.text == '🧮 Профильная математика'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🧮 Введите количество баллов по Профильной математике: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 1)
+                        elif (event.text == '🇷🇺 Русский язык'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🇷🇺 Введите количество баллов по Русскому языку: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 2)
+                        elif (event.text == '🏘 Обществознание'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🏘 Введите количество баллов по Обществознанию: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 3)
+                        elif (event.text == '🧬 Биология'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🧬 Введите количество баллов по Биологии: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 4)
+                        elif (event.text == '⚛ Физика'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="⚛ Введите количество баллов по Физике: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 5)
+                        elif (event.text == '🏰 История'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🏰 Введите количество баллов по Истории: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 6)
+                        elif (event.text == '💻 Информатика'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="💻 Введите количество баллов по Информатике: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 7)
+                        elif (event.text == '🧪 Химия'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🧪 Введите количество баллов по Химии: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 8)
+                        elif (event.text == '📝 Литература'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="📝 Введите количество баллов по Литературе: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 9)
+                        elif (event.text == '🗺 География'):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🗺 Введите количество баллов по Географии: ",
+                                keyboard=keyboard_insert_ball(),
+                                random_id=random_id()
+                            )
+                            set_user_choose_subject(event.user_id, 10)
+                    elif msg in ('/back_to_add_ball', '📖 назад к выбору предмета', 'отмена добавления балла'):
+                        set_user_choose_subject(event.user_id, 0)
+                        if (get_user_ball_status(event.user_id) == 1):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="Ваши баллы: ",
+                                keyboard=keyboard_start(),
+                                random_id=random_id()
+                            )
+                        else:
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🔰Выберите предмет, который хотите добавить!",
+                                keyboard=keyboard_subject_1(),
+                                random_id=random_id()
+                            )
+                    elif (re.match(r"\d\d" ,event.text)) or (re.match(r"\d\d\d" ,event.text)):
+                        set_user_ball(event.user_id, get_user_choose_subject(event.user_id), event.text)
+                        vk.messages.send(
+                            user_id=event.user_id,
+                            message="🔰Вы ввели: "+event.text+"\n✔Баллы по предмету обновлены!",
+                            keyboard=keyboard_start(),
+                            random_id=random_id()
+                        )
+                        set_user_choose_subject(event.user_id, 0)
                     else:
                         vk.messages.send(
                             user_id=event.user_id,

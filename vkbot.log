@@ -9,3 +9,43 @@ ERROR:root:2020-04-28 16:03:34.303534 name 'keyboard_subject' is not defined
 ERROR:root:2020-04-28 16:03:46.198194 name 'keyboard_subject' is not defined
 INFO:root:Start AbituentBotVk! 2020-04-28 16:13:47.599107
 INFO:root:Start AbituentBotVk! 2020-04-28 16:36:39.466023
+INFO:root:Start AbituentBotVk! 2020-04-28 21:20:35.487845
+INFO:root:Start AbituentBotVk! 2020-04-28 21:21:52.886219
+INFO:root:Start AbituentBotVk! 2020-04-28 21:22:35.425787
+ERROR:root:2020-04-28 21:22:42.453214 set_user_choose_subject() missing 1 required positional argument: 'subject_id'
+INFO:root:Start AbituentBotVk! 2020-04-28 21:26:49.169024
+INFO:root:Start AbituentBotVk! 2020-04-28 21:36:01.507585
+ERROR:root:2020-04-28 21:36:09.543810 no such table: users_ball
+INFO:root:Start AbituentBotVk! 2020-04-28 21:37:19.364933
+INFO:root:Start AbituentBotVk! 2020-04-28 21:39:25.598806
+INFO:root:Start AbituentBotVk! 2020-04-28 21:40:41.208077
+INFO:root:Start AbituentBotVk! 2020-04-28 21:58:46.752813
+INFO:root:Start AbituentBotVk! 2020-04-28 22:07:27.677794
+ERROR:root:2020-04-28 22:07:55.179081 %d format: a number is required, not str
+INFO:root:Start AbituentBotVk! 2020-04-28 22:10:58.821775
+ERROR:root:2020-04-28 22:11:19.330794 name 'ball' is not defined
+INFO:root:Start AbituentBotVk! 2020-04-28 22:12:42.997749
+ERROR:root:2020-04-28 22:12:54.824051 name 'ball' is not defined
+INFO:root:Start AbituentBotVk! 2020-04-28 22:14:14.572992
+ERROR:root:2020-04-28 22:14:32.460887 name 'ball' is not defined
+INFO:root:Start AbituentBotVk! 2020-04-28 22:15:37.195983
+ERROR:root:2020-04-28 22:15:45.551546 near "2": syntax error
+INFO:root:Start AbituentBotVk! 2020-04-28 22:23:17.765545
+INFO:root:Start AbituentBotVk! 2020-04-28 22:29:25.194389
+INFO:root:Start AbituentBotVk! 2020-04-28 22:31:45.461565
+ERROR:root:2020-04-28 22:32:10.892514 name 'user_id' is not defined
+INFO:root:Start AbituentBotVk! 2020-04-28 22:32:46.011070
+INFO:root:Start AbituentBotVk! 2020-04-28 22:38:18.574418
+INFO:root:Start AbituentBotVk! 2020-04-28 23:22:51.116303
+INFO:root:Start AbituentBotVk! 2020-04-28 23:24:31.306835
+INFO:root:Start AbituentBotVk! 2020-04-28 23:29:24.914498
+INFO:root:Start AbituentBotVk! 2020-04-28 23:30:44.615549
+INFO:root:Start AbituentBotVk! 2020-04-28 23:31:34.744995
+INFO:root:Start AbituentBotVk! 2020-04-28 23:32:23.804115
+INFO:root:Start AbituentBotVk! 2020-04-28 23:36:39.346888
+INFO:root:Start AbituentBotVk! 2020-04-28 23:38:38.391128
+INFO:root:Start AbituentBotVk! 2020-04-28 23:39:48.831333
+INFO:root:Start AbituentBotVk! 2020-04-28 23:59:42.043173
+ERROR:root:2020-04-28 23:59:46.747325 get_status_ball() missing 1 required positional argument: 'user_id'
+INFO:root:Start AbituentBotVk! 2020-04-29 00:01:01.733460
+INFO:root:Start AbituentBotVk! 2020-04-29 00:02:30.389663
