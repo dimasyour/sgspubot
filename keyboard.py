@@ -1,5 +1,6 @@
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 
+
 def keyboard_start():
     keyboard = VkKeyboard(False)
     keyboard.add_button('📖 Мои баллы', VkKeyboardColor.PRIMARY)
@@ -8,6 +9,7 @@ def keyboard_start():
 
     return keyboard.get_keyboard()
 
+
 def keyboard_add_ball():
     keyboard = VkKeyboard(False)
     keyboard.add_button('📖 Добавить баллы', VkKeyboardColor.POSITIVE)
@@ -15,6 +17,7 @@ def keyboard_add_ball():
     keyboard.add_button('📖 Вернуться назад', VkKeyboardColor.NEGATIVE)
 
     return keyboard.get_keyboard()
+
 
 def keyboard_subject_1():
     keyboard = VkKeyboard(False)
@@ -31,6 +34,7 @@ def keyboard_subject_1():
     keyboard.add_button('📖 Вернуться назад', VkKeyboardColor.NEGATIVE)
     return keyboard.get_keyboard()
 
+
 def keyboard_subject_2():
     keyboard = VkKeyboard(False)
     keyboard.add_button('Показать предыдущие предметы', VkKeyboardColor.POSITIVE)
@@ -45,6 +49,7 @@ def keyboard_subject_2():
     keyboard.add_line()
     keyboard.add_button('📖 Вернуться назад', VkKeyboardColor.NEGATIVE)
     return keyboard.get_keyboard()
+
 
 def keyboard_insert_ball():
     keyboard = VkKeyboard(False)
