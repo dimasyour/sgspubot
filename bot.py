@@ -69,7 +69,6 @@ def main():
                                 random_id=random_chat_id()
                             )
                             myballs = get_my_ball(event.user_id)
-                            i = 0
                             for i in range(len(myballs)):
                                 vk.messages.send(
                                     user_id=event.user_id,
@@ -93,7 +92,6 @@ def main():
                                 random_id=random_chat_id()
                             )
                             myballs = get_my_ball(event.user_id)
-                            i = 0
                             for i in range(len(myballs)):
                                 vk.messages.send(
                                     user_id=event.user_id,
