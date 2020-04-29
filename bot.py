@@ -22,7 +22,7 @@ global Random
 
 def random_chat_id():
     chat_id = 0
-    chat_id += random.randint(0, 1000000000);
+    chat_id += random.randint(0, 1000000000)
     return chat_id
 
 
