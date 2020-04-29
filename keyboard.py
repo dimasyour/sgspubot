@@ -53,5 +53,7 @@ def keyboard_subject_2():
 
 def keyboard_insert_ball():
     keyboard = VkKeyboard(False)
+    keyboard.add_button('📖 Удалить баллы по этому предмету', VkKeyboardColor.DEFAULT)
+    keyboard.add_line()
     keyboard.add_button('📖 Назад к выбору предмета', VkKeyboardColor.NEGATIVE)
     return keyboard.get_keyboard()

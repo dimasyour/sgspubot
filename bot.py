@@ -236,6 +236,29 @@ def main():
                             random_id=random_chat_id()
                         )
                         set_user_choose_subject(event.user_id, 0)
+                    elif msg in ('/remove_ball_to_choose_subject', '📖 удалить баллы по этому предмету'):
+                        set_user_ball(event.user_id, get_user_choose_subject(event.user_id), 0)
+                        if get_status_ball(event.user_id):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="✔Баллы у предмета удалены!",
+                                keyboard=keyboard_start(),
+                                random_id=random_chat_id()
+                            )
+                            myballs = get_my_ball(event.user_id)
+                            for i in range(len(myballs)):
+                                vk.messages.send(
+                                    user_id=event.user_id,
+                                    message=myballs[i],
+                                    keyboard=keyboard_start(),
+                                    random_id=random_chat_id()
+                                )
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="🔰Выберите предмет, который хотите добавить!",
+                                keyboard=keyboard_subject_2(),
+                                random_id=random_chat_id()
+                            )
                     else:
                         vk.messages.send(
                             user_id=event.user_id,
