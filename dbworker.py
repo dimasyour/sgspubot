@@ -44,10 +44,6 @@ def get_user_ball_status(user_id):
 
 #записывает, какой предмет абитуриент, хочет выбрать, чтобы добавить баллы к нему (0 - выйти из добавления)
 def set_user_choose_subject(user_id, subject_id):
-    print(user_id)
-    print(type(user_id))
-    print(type(subject_id))
-    print(subject_id)
     c.execute("UPDATE user_ball SET user_choose = %d WHERE user_id = %d" % (subject_id, user_id))
     conn.commit()
 
