@@ -256,7 +256,14 @@ def main():
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_subject_2(),
+                                keyboard=keyboard_subject_1(),
+                                random_id=random_chat_id()
+                            )
+                        else:
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message="✔Баллы у предмета удалены!\nБольше баллов нет. Добавьте их!",
+                                keyboard=keyboard_subject_1(),
                                 random_id=random_chat_id()
                             )
                     else:
