@@ -4,7 +4,6 @@ import logging
 import os
 import re
 import time
-
 import random
 import vk_api
 from vk_api.longpoll import *
@@ -21,10 +20,10 @@ vk_session = vk_api.VkApi(token=token)
 global Random
 
 
-def random_id():
-    Random = 0
-    Random += random.randint(0, 1000000000);
-    return Random
+def random_chat_id():
+    chat_id = 0
+    chat_id += random.randint(0, 1000000000);
+    return chat_id
 
 
 ans = Constants
@@ -59,7 +58,7 @@ def main():
                             user_id=event.user_id,
                             message="Бот работает!",
                             keyboard=keyboard_start(),
-                            random_id=random_id()
+                            random_id=random_chat_id()
                         )
                     elif msg in ('/my_ball', '📖 мои баллы'):
                         if get_status_ball(event.user_id):
@@ -67,7 +66,7 @@ def main():
                                 user_id=event.user_id,
                                 message="✅ Все ваши баллы указанны ниже: ",
                                 keyboard=keyboard_subject_1(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             myballs = get_my_ball(event.user_id)
                             i = 0
@@ -76,14 +75,14 @@ def main():
                                     user_id=event.user_id,
                                     message=myballs[i],
                                     keyboard=keyboard_subject_1(),
-                                    random_id=random_id()
+                                    random_id=random_chat_id()
                                 )
                         else:
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="⚠ Вы не добавили баллы!",
                                 keyboard=keyboard_add_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                     elif msg in ('/add_ball', '📖 добавить баллы', 'показать предыдущие предметы'):
                         if get_status_ball(event.user_id):
@@ -91,7 +90,7 @@ def main():
                                 user_id=event.user_id,
                                 message="✅ Все ваши баллы указанны ниже: ",
                                 keyboard=keyboard_start(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             myballs = get_my_ball(event.user_id)
                             i = 0
@@ -100,20 +99,20 @@ def main():
                                     user_id=event.user_id,
                                     message=myballs[i],
                                     keyboard=keyboard_start(),
-                                    random_id=random_id()
+                                    random_id=random_chat_id()
                                 )
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="🔰Выберите предмет, который хотите добавить!",
                                 keyboard=keyboard_add_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                         else:
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="🔰Выберите предмет, который хотите добавить!",
                                 keyboard=keyboard_subject_1(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                     elif msg in ('/add_ball_2', '📖 добавить баллы 2', 'показать следующие предметы'):
                         if get_user_ball_status(event.user_id) == 1:
@@ -121,14 +120,14 @@ def main():
                                 user_id=event.user_id,
                                 message="Ваши баллы: ",
                                 keyboard=keyboard_start(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                         else:
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="🔰Выберите предмет, который хотите добавить!",
                                 keyboard=keyboard_subject_2(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                     elif event.text in (
                             '🧮 Профильная математика', '🇷🇺 Русский язык', '🏘 Обществознание', '🧬 Биология',
@@ -139,7 +138,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🧮 Введите количество баллов по Профильной математике: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 1)
                         elif event.text == '🇷🇺 Русский язык':
@@ -147,7 +146,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🇷🇺 Введите количество баллов по Русскому языку: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 2)
                         elif event.text == '🏘 Обществознание':
@@ -155,7 +154,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🏘 Введите количество баллов по Обществознанию: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 3)
                         elif event.text == '🧬 Биология':
@@ -163,7 +162,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🧬 Введите количество баллов по Биологии: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 4)
                         elif event.text == '⚛ Физика':
@@ -171,7 +170,7 @@ def main():
                                 user_id=event.user_id,
                                 message="⚛ Введите количество баллов по Физике: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 5)
                         elif event.text == '🏰 История':
@@ -179,7 +178,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🏰 Введите количество баллов по Истории: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 6)
                         elif event.text == '💻 Информатика':
@@ -187,7 +186,7 @@ def main():
                                 user_id=event.user_id,
                                 message="💻 Введите количество баллов по Информатике: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 7)
                         elif event.text == '🧪 Химия':
@@ -195,7 +194,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🧪 Введите количество баллов по Химии: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 8)
                         elif event.text == '📝 Литература':
@@ -203,7 +202,7 @@ def main():
                                 user_id=event.user_id,
                                 message="📝 Введите количество баллов по Литературе: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 9)
                         elif event.text == '🗺 География':
@@ -211,7 +210,7 @@ def main():
                                 user_id=event.user_id,
                                 message="🗺 Введите количество баллов по Географии: ",
                                 keyboard=keyboard_insert_ball(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                             set_user_choose_subject(event.user_id, 10)
                     elif msg in ('/back_to_add_ball', '📖 назад к выбору предмета', 'отмена добавления балла'):
@@ -221,14 +220,14 @@ def main():
                                 user_id=event.user_id,
                                 message="Ваши баллы: ",
                                 keyboard=keyboard_start(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                         else:
                             vk.messages.send(
                                 user_id=event.user_id,
                                 message="🔰Выберите предмет, который хотите добавить!",
                                 keyboard=keyboard_subject_1(),
-                                random_id=random_id()
+                                random_id=random_chat_id()
                             )
                     elif (re.match(r"\d\d", event.text)) or (re.match(r"\d\d\d", event.text)):
                         set_user_ball(event.user_id, get_user_choose_subject(event.user_id), event.text)
@@ -236,7 +235,7 @@ def main():
                             user_id=event.user_id,
                             message="🔰Вы ввели: " + event.text + "\n✔Баллы по предмету обновлены!",
                             keyboard=keyboard_start(),
-                            random_id=random_id()
+                            random_id=random_chat_id()
                         )
                         set_user_choose_subject(event.user_id, 0)
                     else:
@@ -244,7 +243,7 @@ def main():
                             user_id=event.user_id,
                             message="Неизвестная команда",
                             keyboard=keyboard_start(),
-                            random_id=random_id()
+                            random_id=random_chat_id()
                         )
         except Exception as e:
             logging.error(str(datetime.now()) + " " + str(e))
