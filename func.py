@@ -3,7 +3,7 @@ import re
 from openpyxl import load_workbook
 
 
-def parse_html_html():
+def parse_table_spec():
     url = "https://www.samgups.ru/education/abiturientam/pk-2020-vo/samara/spetsialnosti_i_napravleniya_podgotovki/index.php"
     table = pd.read_html(url)[0]
     table.to_excel("ochnik.xlsx")

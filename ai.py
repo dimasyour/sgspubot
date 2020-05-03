@@ -12,6 +12,7 @@ from vk_api.longpoll import *
 from dbworker import *
 from keyboard import *
 from func import *
+from parse import *
 
 logging.basicConfig(filename="vkbot.log", level=logging.INFO)
 logging.info("Start AbituentBotVk! " + str(datetime.now()))
@@ -27,15 +28,18 @@ def random_chat_id():
     chat_id += random.randint(0, 1000000000)
     return chat_id
 
+
 ans = Constants
 
+
 def ais(msg):
-    request = apiai.ApiAI('0a87568e576f41b5a25a238766958430').text_request() # Токен API к DialogFlow
-    request.lang = 'ru' # Язык
-    request.query = msg # Посылаем сообщение в DialogFlow                    
+    request = apiai.ApiAI('0a87568e576f41b5a25a238766958430').text_request()  # Токен API к DialogFlow
+    request.lang = 'ru'  # Язык
+    request.query = msg  # Посылаем сообщение в DialogFlow
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
-    response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON
+    response = responseJson['result']['fulfillment']['speech']  # Разбираем JSON
     print(response)
+
 
 def main():
     while True:
@@ -43,7 +47,8 @@ def main():
             longpoll = VkLongPoll(vk_session)
             vk = vk_session.get_api()
             print('Соединение установлено...')
-            parse_html_html()
+            parse_table_spec()
+            parse_news()
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                     msg = event.text.lower()
@@ -66,7 +71,7 @@ def main():
                     if msg in ('/start', 'начать', '📖 вернуться назад', 'назад к главной'):
                         vk.messages.send(
                             user_id=event.user_id,
-                            message="Бот работает!",
+                            message=ans.start_info,
                             keyboard=keyboard_start(),
                             random_id=random_chat_id()
                         )
@@ -307,6 +312,29 @@ def main():
                             user_id=event.user_id,
                             message=view_spec('zaochnik.xlsx'),
                             keyboard=keyboard_spec(),
+                            random_id=random_chat_id()
+                        )
+                    elif msg in ('/view_news', '📰 новости с сайта самгупс', 'новости сайта'):
+                        vk.messages.send(
+                            user_id=event.user_id,
+                            message='❓Хочешь увидеть последнюю или последние 10 новостей?',
+                            keyboard=keyboard_choose_news(),
+                            random_id=random_chat_id()
+                        )
+                    elif msg in ('/view_all_news', '📰 показать 10 последних', 'показать 10 последних'):
+                        newsList = view_all_news()
+                        for i in range(len(newsList)):
+                            vk.messages.send(
+                                user_id=event.user_id,
+                                message=newsList[i],
+                                keyboard=keyboard_choose_news(),
+                                random_id=random_chat_id()
+                            )
+                    elif msg in ('/view_last_news', '📰 последняя', 'последняя'):
+                        vk.messages.send(
+                            user_id=event.user_id,
+                            message='' + view_last_news(),
+                            keyboard=keyboard_choose_news(),
                             random_id=random_chat_id()
                         )
                     else:

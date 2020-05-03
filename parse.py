@@ -23,35 +23,47 @@ def get_content(html):
     newsDict = []  # пустой словарь
     for news in all_news:
         newsDict.append({
-            'title': news.find('b').get_text(strip=True),
-            'anons': news.find('div', class_='news-anons').get_text(strip=True),
-            'date': news.find('span', class_='news-date-time').get_text(strip=True),
-            'link': HOST + news.find('a').get('href')
+            'title': '❗' + news.find('b').get_text(strip=True),
+            'anons': '\n' + news.find('div', class_='news-anons').get_text(strip=True),
+            'date': '📅' + news.find('span', class_='news-date-time').get_text(strip=True),
+            'link': '🌐' + HOST + news.find('a').get('href')
         })
     return newsDict
 
 
 def news_to_csv(newsDict, path):
-    with open(path, 'w', newline='') as file:
-        writer = csv.writer(file, delimiter=';')
-        writer.writerow(['Заголовок', 'Анонс', 'Дата публикации', 'Ссылка'])
+    with open(path, 'w', newline='', encoding='utf8') as file:
+        writer = csv.writer(file)
         for news in newsDict:
-            writer.writerow([news['title'], news['anons'], news['date'], news['link']])
+            writer.writerow([news['title'] + '\n' + news['anons'] + '\n' + news['date'] + '\n' + news['link']])
 
 
-def parse():
+def parse_news():
     html = get_html(URL)
     if html.status_code == 200:
         newsDict = []
         get_content(html.text)
         newsDict.extend(get_content(html.text))
         news_to_csv(newsDict, FILE)
+        print('Парсинг новостей - успешно!')
     else:
-        return 'error'
+        return 'Ошибка парсинга!'
 
-def view_news():
-    with open('news.csv') as f:
+
+def view_all_news():
+    newsList = []
+    with open('news.csv', encoding='utf8') as f:
         reader = csv.reader(f)
-        next(reader)
         for row in reader:
-            print(row)
+            newsList.append(row)
+        return newsList
+
+
+def view_last_news():
+    newsList = []
+    with open('news.csv', encoding='utf8') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            newsList.append(row)
+        last_newsString = ''.join(newsList[0])  # ''
+        return last_newsString

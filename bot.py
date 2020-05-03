@@ -36,7 +36,7 @@ def main():
             longpoll = VkLongPoll(vk_session)
             vk = vk_session.get_api()
             print('Соединение установлено...')
-            parse_html_html()
+            parse_table_spec()
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                     msg = event.text.lower()

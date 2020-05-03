@@ -110,3 +110,24 @@ INFO:root:Start AbituentBotVk! 2020-05-03 15:32:33.240642
 INFO:root:Start AbituentBotVk! 2020-05-03 15:35:57.324669
 INFO:root:Start AbituentBotVk! 2020-05-03 20:34:15.073717
 INFO:root:Start AbituentBotVk! 2020-05-03 20:36:16.914004
+INFO:root:Start AbituentBotVk! 2020-05-03 20:56:30.034454
+ERROR:root:2020-05-03 20:57:00.028935 [914] Message is too long
+INFO:root:Start AbituentBotVk! 2020-05-03 21:03:11.653224
+INFO:root:Start AbituentBotVk! 2020-05-03 21:54:57.634398
+ERROR:root:2020-05-03 21:55:18.910030 object of type 'NoneType' has no len()
+INFO:root:Start AbituentBotVk! 2020-05-03 21:56:32.231164
+ERROR:root:2020-05-03 21:56:47.326061 object of type 'NoneType' has no len()
+INFO:root:Start AbituentBotVk! 2020-05-03 21:57:41.573739
+INFO:root:Start AbituentBotVk! 2020-05-03 22:04:39.361672
+INFO:root:Start AbituentBotVk! 2020-05-03 22:20:05.770897
+ERROR:root:2020-05-03 22:20:19.805237 'charmap' codec can't decode byte 0x98 in position 719: character maps to <undefined>
+INFO:root:Start AbituentBotVk! 2020-05-03 22:22:39.181863
+INFO:root:Start AbituentBotVk! 2020-05-03 22:26:30.947252
+INFO:root:Start AbituentBotVk! 2020-05-03 22:50:45.735046
+ERROR:root:2020-05-03 22:52:06.313180 Remote end closed connection without response
+INFO:root:Start AbituentBotVk! 2020-05-03 22:56:14.683400
+ERROR:root:2020-05-03 22:56:35.358457 can only concatenate str (not "list") to str
+INFO:root:Start AbituentBotVk! 2020-05-03 22:58:02.249169
+ERROR:root:2020-05-03 22:58:54.854306 can only concatenate str (not "list") to str
+INFO:root:Start AbituentBotVk! 2020-05-03 23:00:44.779473
+INFO:root:Start AbituentBotVk! 2020-05-03 23:11:58.377368

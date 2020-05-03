@@ -93,6 +93,7 @@ def set_user_ball(user_id, subject, ball):
         c.execute("UPDATE user_ball SET lang_e = %s WHERE user_id = %d" % (ball, user_id))
         conn.commit()
 
+
 # узнает к какому предмету хочет добавить студент баллы
 def get_user_choose_subject(user_id):
     c.execute("SELECT user_choose FROM user_ball WHERE user_id = %d" % user_id)
