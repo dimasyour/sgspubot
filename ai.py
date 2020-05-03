@@ -276,7 +276,7 @@ def main():
                                 keyboard=keyboard_subject_1(),
                                 random_id=random_chat_id()
                             )
-                    elif msg in ('/view_spec', '📖 направления и специальности', 'показать специальности'):
+                    elif msg in ('/view_spec', '📒 направления и специальности', 'направления и специальности'):
                         vk.messages.send(
                             user_id=event.user_id,
                             message="📒Выберите форму обучения: ",
@@ -292,7 +292,7 @@ def main():
                         )
                         vk.messages.send(
                             user_id=event.user_id,
-                            message=view_spec_och(),
+                            message=view_spec('ochnik.xlsx'),
                             keyboard=keyboard_spec(),
                             random_id=random_chat_id()
                         )
@@ -305,7 +305,7 @@ def main():
                         )
                         vk.messages.send(
                             user_id=event.user_id,
-                            message=view_spec(),
+                            message=view_spec('zaochnik.xlsx'),
                             keyboard=keyboard_spec(),
                             random_id=random_chat_id()
                         )

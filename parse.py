@@ -48,3 +48,10 @@ def parse():
         news_to_csv(newsDict, FILE)
     else:
         return 'error'
+
+def view_news():
+    with open('news.csv') as f:
+        reader = csv.reader(f)
+        next(reader)
+        for row in reader:
+            print(row)
