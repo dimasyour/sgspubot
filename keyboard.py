@@ -3,7 +3,9 @@ from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 
 def keyboard_start():
     keyboard = VkKeyboard(False)
-    keyboard.add_button('📖 Мои баллы', VkKeyboardColor.PRIMARY)
+    keyboard.add_button('📖 Мои баллы', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('📒 Направления и специальности', VkKeyboardColor.POSITIVE)
     keyboard.add_line()
     keyboard.add_openlink_button('Группа ВК', 'http://vk.com/pgsga')
 
@@ -56,4 +58,13 @@ def keyboard_insert_ball():
     keyboard.add_button('📖 Удалить баллы по этому предмету', VkKeyboardColor.DEFAULT)
     keyboard.add_line()
     keyboard.add_button('📖 Назад к выбору предмета', VkKeyboardColor.NEGATIVE)
+    return keyboard.get_keyboard()
+
+def keyboard_spec():
+    keyboard = VkKeyboard(False)
+    keyboard.add_button('📒 Очная', VkKeyboardColor.PRIMARY)
+    keyboard.add_button('📒 Заочная', VkKeyboardColor.PRIMARY)
+    keyboard.add_line()
+    keyboard.add_button('Назад к главной', VkKeyboardColor.NEGATIVE)
+
     return keyboard.get_keyboard()

@@ -66,3 +66,45 @@ INFO:root:Start AbituentBotVk! 2020-04-29 12:08:44.596160
 INFO:root:Start AbituentBotVk! 2020-04-29 12:10:03.949575
 INFO:root:Start AbituentBotVk! 2020-04-29 12:12:34.898503
 INFO:root:Start AbituentBotVk! 2020-04-29 12:12:44.972832
+INFO:root:Start AbituentBotVk! 2020-04-29 15:23:48.615880
+INFO:root:Start AbituentBotVk! 2020-04-29 15:25:54.144685
+INFO:root:Start AbituentBotVk! 2020-05-01 13:19:45.140559
+INFO:root:Start AbituentBotVk! 2020-05-01 13:22:12.301439
+INFO:root:Start AbituentBotVk! 2020-05-01 13:26:04.430116
+INFO:root:Start AbituentBotVk! 2020-05-01 13:59:32.783010
+INFO:root:Start AbituentBotVk! 2020-05-02 12:15:48.434156
+ERROR:root:2020-05-02 12:17:21.618753 name 'json' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-02 12:19:05.791749
+INFO:root:Start AbituentBotVk! 2020-05-02 12:25:08.532990
+INFO:root:Start AbituentBotVk! 2020-05-02 12:38:57.847823
+INFO:root:Start AbituentBotVk! 2020-05-03 13:25:56.637120
+ERROR:root:2020-05-03 13:26:12.915601 name 'keyboard_spec' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-03 13:26:36.624827
+ERROR:root:2020-05-03 13:31:27.224453 ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+ERROR:root:2020-05-03 13:31:38.815390 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 13:31:50.317461 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 13:32:01.684766 [Errno 13] Permission denied: 'ochnik.xlsx'
+INFO:root:Start AbituentBotVk! 2020-05-03 14:06:02.160180
+ERROR:root:2020-05-03 14:06:04.037151 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:06:15.744298 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:06:27.482689 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:06:39.539446 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:06:51.263192 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:07:03.282841 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:07:15.389403 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:07:27.056507 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:07:39.859363 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:07:51.626078 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:08:03.624244 [Errno 13] Permission denied: 'ochnik.xlsx'
+ERROR:root:2020-05-03 14:08:15.114586 [Errno 13] Permission denied: 'ochnik.xlsx'
+INFO:root:Start AbituentBotVk! 2020-05-03 14:09:01.270306
+INFO:root:Start AbituentBotVk! 2020-05-03 14:11:41.195689
+INFO:root:Start AbituentBotVk! 2020-05-03 14:12:36.454040
+ERROR:root:2020-05-03 14:13:53.211627 name 'view_spec' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-03 14:14:46.568595
+INFO:root:Start AbituentBotVk! 2020-05-03 14:16:28.911395
+INFO:root:Start AbituentBotVk! 2020-05-03 15:27:11.480699
+INFO:root:Start AbituentBotVk! 2020-05-03 15:29:47.097435
+INFO:root:Start AbituentBotVk! 2020-05-03 15:30:48.274784
+INFO:root:Start AbituentBotVk! 2020-05-03 15:32:33.240642
+INFO:root:Start AbituentBotVk! 2020-05-03 15:35:57.324669

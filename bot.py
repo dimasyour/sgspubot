@@ -7,9 +7,10 @@ import time
 import random
 import vk_api
 from vk_api.longpoll import *
-
+import apiai, json
 from dbworker import *
 from keyboard import *
+from func import *
 
 logging.basicConfig(filename="vkbot.log", level=logging.INFO)
 logging.info("Start AbituentBotVk! " + str(datetime.now()))
@@ -35,6 +36,7 @@ def main():
             longpoll = VkLongPoll(vk_session)
             vk = vk_session.get_api()
             print('Соединение установлено...')
+            parse_html_html()
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                     msg = event.text.lower()
@@ -52,227 +54,21 @@ def main():
                         UserPhoto200 = user_data[0]["photo_200"]
                         register_new_user(UserID, UserLastName, UserFirstName, UserSex, UserCountry, UserCity,
                                           UserDomain, UserPhoto200)
-
-                    if msg in ('/start', 'начать', '📖 вернуться назад'):
-                        vk.messages.send(
-                            user_id=event.user_id,
-                            message="Бот работает!",
-                            keyboard=keyboard_start(),
-                            random_id=random_chat_id()
-                        )
-                    elif msg in ('/my_ball', '📖 мои баллы'):
-                        if get_status_ball(event.user_id):
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="✅ Все ваши баллы указанны ниже: ",
-                                keyboard=keyboard_subject_1(),
-                                random_id=random_chat_id()
-                            )
-                            myballs = get_my_ball(event.user_id)
-                            for i in range(len(myballs)):
+                        request = apiai.ApiAI('b2abbedff7cb47b89ac725d08f0436cb  ').text_request() # Токен API к DialogFlow
+                        request.lang = 'ru' # Язык
+                        request.query = event.text # Посылаем сообщение в DialogFlow                    
+                        responseJson = json.loads(request.getresponse().read().decode('utf-8'))
+                        response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON
+                        print(response)
+                        # try:
+                        if re.match(r'vk', response) or re.match(r'if ', response):
+                                exec(response)
+                        else:
                                 vk.messages.send(
-                                    user_id=event.user_id,
-                                    message=myballs[i],
-                                    keyboard=keyboard_subject_1(),
-                                    random_id=random_chat_id()
+                                    user_id = event.user_id,
+                                    random_id = event.random_id,
+                                    message = 'не найдено'
                                 )
-                        else:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="⚠ Вы не добавили баллы!",
-                                keyboard=keyboard_add_ball(),
-                                random_id=random_chat_id()
-                            )
-                    elif msg in ('/add_ball', '📖 добавить баллы', 'показать предыдущие предметы'):
-                        if get_status_ball(event.user_id):
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="✅ Все ваши баллы указанны ниже: ",
-                                keyboard=keyboard_start(),
-                                random_id=random_chat_id()
-                            )
-                            myballs = get_my_ball(event.user_id)
-                            for i in range(len(myballs)):
-                                vk.messages.send(
-                                    user_id=event.user_id,
-                                    message=myballs[i],
-                                    keyboard=keyboard_start(),
-                                    random_id=random_chat_id()
-                                )
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_add_ball(),
-                                random_id=random_chat_id()
-                            )
-                        else:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_subject_1(),
-                                random_id=random_chat_id()
-                            )
-                    elif msg in ('/add_ball_2', '📖 добавить баллы 2', 'показать следующие предметы'):
-                        if get_user_ball_status(event.user_id) == 1:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="Ваши баллы: ",
-                                keyboard=keyboard_start(),
-                                random_id=random_chat_id()
-                            )
-                        else:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_subject_2(),
-                                random_id=random_chat_id()
-                            )
-                    elif event.text in (
-                            '🧮 Профильная математика', '🇷🇺 Русский язык', '🏘 Обществознание', '🧬 Биология',
-                            '⚛ Физика',
-                            '🏰 История', '💻 Информатика', '🧪 Химия', '📝 Литература', '🗺 География'):
-                        if event.text == '🧮 Профильная математика':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🧮 Введите количество баллов по Профильной математике: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 1)
-                        elif event.text == '🇷🇺 Русский язык':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🇷🇺 Введите количество баллов по Русскому языку: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 2)
-                        elif event.text == '🏘 Обществознание':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🏘 Введите количество баллов по Обществознанию: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 3)
-                        elif event.text == '🧬 Биология':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🧬 Введите количество баллов по Биологии: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 4)
-                        elif event.text == '⚛ Физика':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="⚛ Введите количество баллов по Физике: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 5)
-                        elif event.text == '🏰 История':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🏰 Введите количество баллов по Истории: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 6)
-                        elif event.text == '💻 Информатика':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="💻 Введите количество баллов по Информатике: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 7)
-                        elif event.text == '🧪 Химия':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🧪 Введите количество баллов по Химии: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 8)
-                        elif event.text == '📝 Литература':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="📝 Введите количество баллов по Литературе: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 9)
-                        elif event.text == '🗺 География':
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🗺 Введите количество баллов по Географии: ",
-                                keyboard=keyboard_insert_ball(),
-                                random_id=random_chat_id()
-                            )
-                            set_user_choose_subject(event.user_id, 10)
-                    elif msg in ('/back_to_add_ball', '📖 назад к выбору предмета', 'отмена добавления балла'):
-                        set_user_choose_subject(event.user_id, 0)
-                        if get_user_ball_status(event.user_id) == 1:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="Ваши баллы: ",
-                                keyboard=keyboard_start(),
-                                random_id=random_chat_id()
-                            )
-                        else:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_subject_1(),
-                                random_id=random_chat_id()
-                            )
-                    elif (re.match(r"\d\d", event.text)) or (re.match(r"\d\d\d", event.text)):
-                        set_user_ball(event.user_id, get_user_choose_subject(event.user_id), event.text)
-                        vk.messages.send(
-                            user_id=event.user_id,
-                            message="🔰Вы ввели: " + event.text + "\n✔Баллы по предмету обновлены!",
-                            keyboard=keyboard_start(),
-                            random_id=random_chat_id()
-                        )
-                        set_user_choose_subject(event.user_id, 0)
-                    elif msg in ('/remove_ball_to_choose_subject', '📖 удалить баллы по этому предмету'):
-                        set_user_ball(event.user_id, get_user_choose_subject(event.user_id), 0)
-                        if get_status_ball(event.user_id):
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="✔Баллы у предмета удалены!",
-                                keyboard=keyboard_start(),
-                                random_id=random_chat_id()
-                            )
-                            myballs = get_my_ball(event.user_id)
-                            for i in range(len(myballs)):
-                                vk.messages.send(
-                                    user_id=event.user_id,
-                                    message=myballs[i],
-                                    keyboard=keyboard_start(),
-                                    random_id=random_chat_id()
-                                )
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="🔰Выберите предмет, который хотите добавить!",
-                                keyboard=keyboard_subject_1(),
-                                random_id=random_chat_id()
-                            )
-                        else:
-                            vk.messages.send(
-                                user_id=event.user_id,
-                                message="✔Баллы у предмета удалены!\nБольше баллов нет. Добавьте их!",
-                                keyboard=keyboard_subject_1(),
-                                random_id=random_chat_id()
-                            )
-                    else:
-                        vk.messages.send(
-                            user_id=event.user_id,
-                            message="Неизвестная команда",
-                            keyboard=keyboard_start(),
-                            random_id=random_chat_id()
-                        )
         except Exception as e:
             logging.error(str(datetime.now()) + " " + str(e))
             time.sleep(10)
