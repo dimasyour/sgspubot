@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import json
 import logging
 import os
 import random
@@ -7,7 +8,6 @@ import re
 import time
 
 import apiai
-import json
 
 from func import *
 from keyboard import *
@@ -45,9 +45,7 @@ def main():
         try:
             longpoll = VkLongPoll(vk_session)
             vk = vk_session.get_api()
-            print('Соединение установлено...')
-            # parse_table_spec()
-            # parse_news()
+            print(colorama.Fore.LIGHTGREEN_EX + '[x] Соединение установлено...')
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                     msg = event.text.lower()
@@ -69,18 +67,10 @@ def main():
                             if get_status_ball(event.user_id):
                                 vk.messages.send(
                                     user_id=event.user_id,
-                                    message="✅ Все ваши баллы указанны ниже: ",
+                                    message="✅ Все ваши баллы указанны ниже: \n\n"+get_my_ball(event.user_id),
                                     keyboard=keyboard_subject_1(),
                                     random_id=random_chat_id()
                                 )
-                                myballs = get_my_ball(event.user_id)
-                                for i in range(len(myballs)):
-                                    vk.messages.send(
-                                        user_id=event.user_id,
-                                        message=myballs[i],
-                                        keyboard=keyboard_subject_1(),
-                                        random_id=random_chat_id()
-                                    )
                             else:
                                 vk.messages.send(
                                     user_id=event.user_id,
@@ -92,18 +82,10 @@ def main():
                             if get_status_ball(event.user_id):
                                 vk.messages.send(
                                     user_id=event.user_id,
-                                    message="✅ Все ваши баллы указанны ниже: ",
+                                    message="✅ Все ваши баллы указанны ниже: \n\n"+get_my_ball(event.user_id),
                                     keyboard=keyboard_start(),
                                     random_id=random_chat_id()
                                 )
-                                myballs = get_my_ball(event.user_id)
-                                for i in range(len(myballs)):
-                                    vk.messages.send(
-                                        user_id=event.user_id,
-                                        message=myballs[i],
-                                        keyboard=keyboard_start(),
-                                        random_id=random_chat_id()
-                                    )
                                 vk.messages.send(
                                     user_id=event.user_id,
                                     message="🔰Выберите предмет, который хотите добавить!",
@@ -246,18 +228,10 @@ def main():
                             if get_status_ball(event.user_id):
                                 vk.messages.send(
                                     user_id=event.user_id,
-                                    message="✔Баллы у предмета удалены!",
+                                    message="✔Баллы у предмета удалены! \n\n"+get_my_ball(event.user_id),
                                     keyboard=keyboard_start(),
                                     random_id=random_chat_id()
                                 )
-                                myballs = get_my_ball(event.user_id)
-                                for i in range(len(myballs)):
-                                    vk.messages.send(
-                                        user_id=event.user_id,
-                                        message=myballs[i],
-                                        keyboard=keyboard_start(),
-                                        random_id=random_chat_id()
-                                    )
                                 vk.messages.send(
                                     user_id=event.user_id,
                                     message="🔰Выберите предмет, который хотите добавить!",
@@ -287,7 +261,7 @@ def main():
                             )
                             vk.messages.send(
                                 user_id=event.user_id,
-                                message=view_spec('ochnik.xlsx'),
+                                message=view_spec('src/ochnik.xlsx'),
                                 keyboard=keyboard_spec(),
                                 random_id=random_chat_id()
                             )
@@ -300,7 +274,7 @@ def main():
                             )
                             vk.messages.send(
                                 user_id=event.user_id,
-                                message=view_spec('zaochnik.xlsx'),
+                                message=view_spec('src/zaochnik.xlsx'),
                                 keyboard=keyboard_spec(),
                                 random_id=random_chat_id()
                             )

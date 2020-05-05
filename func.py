@@ -4,14 +4,15 @@ from openpyxl import load_workbook
 from vk_api.longpoll import *
 from dbworker import *
 
+print(colorama.Fore.LIGHTBLUE_EX + 'Парсинг новостей - успешно!')
+
 
 def parse_table_spec():
     url = "https://www.samgups.ru/education/abiturientam/pk-2020-vo/samara/spetsialnosti_i_napravleniya_podgotovki/index.php"
     table = pd.read_html(url)[0]
-    table.to_excel("ochnik.xlsx")
+    table.to_excel("src/ochnik.xlsx")
     table = pd.read_html(url)[1]
-    table.to_excel("zaochnik.xlsx")
-    print('Таблицы специальностей и направлений успешно обновлены!')
+    table.to_excel("src/zaochnik.xlsx")
 
 
 def view_spec(file):

@@ -1,10 +1,11 @@
 import sqlite3
 import Constants
+import colorama
 
 slova = Constants
 
 conn = sqlite3.connect("src/base.db")
-print('БД подключена...')
+print(colorama.Fore.LIGHTGREEN_EX + '[x] БД подключена...')
 c = conn.cursor()
 
 
@@ -111,7 +112,8 @@ def get_my_ball(user_id):
     for i in range(11):
         if result[i] != 0:
             myballs.append(slova.subject[i] + ": " + str(result[i]))
-    return myballs
+            myballsString = '\n'.join(myballs)
+    return myballsString
 
 
 # проверяет есть ли хотя бы один предмет с добавленными баллами

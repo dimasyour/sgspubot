@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import colorama
+
+print(colorama.Fore.LIGHTBLUE_EX + '[x] Парсинг новостей - успешно!')
 
 URL = 'https://www.samgups.ru'
 HEADERS = {
@@ -8,7 +11,7 @@ HEADERS = {
                   'Chrome/81.0.4044.129 Safari/537.36 OPR/68.0.3618.63',
     'accept': '*/*'}
 HOST = 'https://www.samgups.ru'
-FILE = 'news.csv'
+FILE = 'src/news.csv'
 
 
 def get_html(url, params=None):
@@ -52,7 +55,7 @@ def parse_news():
 
 def view_all_news():
     newsList = []
-    with open('news.csv', encoding='utf8') as f:
+    with open('src/news.csv', encoding='utf8') as f:
         reader = csv.reader(f)
         for row in reader:
             newsList.append(row)
@@ -61,9 +64,9 @@ def view_all_news():
 
 def view_last_news():
     newsList = []
-    with open('news.csv', encoding='utf8') as f:
+    with open('src/news.csv', encoding='utf8') as f:
         reader = csv.reader(f)
         for row in reader:
             newsList.append(row)
-        last_newsString = ''.join(newsList[1])  # ''
+        last_newsString = ''.join(newsList[1])
         return last_newsString

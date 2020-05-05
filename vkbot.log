@@ -161,3 +161,17 @@ ERROR:root:2020-05-05 11:45:50.782189 name 'user_id' is not defined
 INFO:root:Start AbituentBotVk! 2020-05-05 11:46:28.243565
 ERROR:root:2020-05-05 11:46:34.961419 name 'user_data' is not defined
 INFO:root:Start AbituentBotVk! 2020-05-05 12:07:55.018684
+INFO:root:Start AbituentBotVk! 2020-05-05 13:03:56.761654
+INFO:root:Start AbituentBotVk! 2020-05-05 13:05:02.381549
+INFO:root:Start AbituentBotVk! 2020-05-05 13:05:34.357505
+INFO:root:Start AbituentBotVk! 2020-05-05 13:09:40.379869
+ERROR:root:2020-05-05 13:10:23.117664 [100] One of the parameters specified was missing or invalid: message is empty or invalid
+INFO:root:Start AbituentBotVk! 2020-05-05 13:10:56.965706
+ERROR:root:2020-05-05 13:11:16.538197 [100] One of the parameters specified was missing or invalid: message is empty or invalid
+INFO:root:Start AbituentBotVk! 2020-05-05 13:23:18.595233
+INFO:root:Start AbituentBotVk! 2020-05-05 13:26:17.259370
+ERROR:root:2020-05-05 13:27:02.389771 [100] One of the parameters specified was missing or invalid: message is empty or invalid
+INFO:root:Start AbituentBotVk! 2020-05-05 13:28:34.921103
+INFO:root:Start AbituentBotVk! 2020-05-05 13:35:32.173004
+INFO:root:Start AbituentBotVk! 2020-05-05 13:41:50.762337
+INFO:root:Start AbituentBotVk! 2020-05-05 13:42:30.903426
