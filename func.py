@@ -1,6 +1,8 @@
 import pandas as pd
-import re
+import vk_api
 from openpyxl import load_workbook
+from vk_api.longpoll import *
+from dbworker import *
 
 
 def parse_table_spec():
@@ -22,7 +24,6 @@ def view_spec(file):
     specList = []
     for i in range(5, len(column_c)):
         if column_b[i].value != 'БАКАЛАВРИАТ (срок обучения - 4 года)':
-            # str1 = 'математика (27), физика (36), русский язык (36)'
             f = ' ' + column_d[i].value.replace(',', '\n')
             specList.append('❗' + column_b[i].value + '\n✅ ' + column_c[i].value + ': \n' + f + '\n\n')
         elif column_b[i].value != '':
@@ -30,3 +31,15 @@ def view_spec(file):
     specString = '\n'.join(specList)
     return specString
 
+
+# парситься JSON и занесение этих данных в БД (регистрация)
+def get_profile_vk(user_data):
+    UserID = user_data[0]["id"]
+    UserLastName = user_data[0]["last_name"]
+    UserFirstName = user_data[0]["first_name"]
+    UserSex = user_data[0]["sex"]
+    UserCountry = user_data[0]["country"]['title']
+    UserCity = user_data[0]["city"]['title']
+    UserDomain = user_data[0]["domain"]
+    UserPhoto200 = user_data[0]["photo_200"]
+    register_new_user(UserID, UserLastName, UserFirstName, UserSex, UserCountry, UserCity, UserDomain, UserPhoto200)

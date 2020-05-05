@@ -131,3 +131,33 @@ INFO:root:Start AbituentBotVk! 2020-05-03 22:58:02.249169
 ERROR:root:2020-05-03 22:58:54.854306 can only concatenate str (not "list") to str
 INFO:root:Start AbituentBotVk! 2020-05-03 23:00:44.779473
 INFO:root:Start AbituentBotVk! 2020-05-03 23:11:58.377368
+INFO:root:Start AbituentBotVk! 2020-05-04 11:06:10.223404
+INFO:root:Start AbituentBotVk! 2020-05-04 12:37:37.810319
+ERROR:root:2020-05-04 12:40:14.355024 [Errno 2] No such file or directory: 'ochnik.xlsx'
+INFO:root:Start AbituentBotVk! 2020-05-04 12:41:05.529425
+INFO:root:Start AbituentBotVk! 2020-05-04 16:54:25.893529
+INFO:root:Start AbituentBotVk! 2020-05-04 16:55:28.540750
+INFO:root:Start AbituentBotVk! 2020-05-04 16:58:02.827713
+INFO:root:Start AbituentBotVk! 2020-05-04 17:06:08.679081
+INFO:root:Start AbituentBotVk! 2020-05-04 17:06:59.314435
+INFO:root:Start AbituentBotVk! 2020-05-04 17:08:08.658990
+ERROR:root:2020-05-04 17:08:35.810675 [100] One of the parameters specified was missing or invalid: message is empty or invalid
+INFO:root:Start AbituentBotVk! 2020-05-04 17:10:21.641979
+INFO:root:Start AbituentBotVk! 2020-05-04 17:16:17.427347
+INFO:root:Start AbituentBotVk! 2020-05-04 17:39:59.233222
+ERROR:root:2020-05-04 17:40:58.734903 [100] One of the parameters specified was missing or invalid: message is empty or invalid
+INFO:root:Start AbituentBotVk! 2020-05-04 17:42:11.517990
+INFO:root:Start AbituentBotVk! 2020-05-04 17:49:48.244073
+INFO:root:Start AbituentBotVk! 2020-05-04 20:03:24.026343
+ERROR:root:2020-05-04 20:04:24.510421 name 'vk' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-04 20:05:32.314908
+ERROR:root:2020-05-04 20:05:46.591440 name 'vk' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-04 20:19:26.051078
+ERROR:root:2020-05-04 20:19:41.879386 module 'vk' has no attribute 'users'
+INFO:root:Start AbituentBotVk! 2020-05-04 20:21:56.432687
+ERROR:root:2020-05-04 20:22:18.061842 name 'vk' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-05 11:44:56.976872
+ERROR:root:2020-05-05 11:45:50.782189 name 'user_id' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-05 11:46:28.243565
+ERROR:root:2020-05-05 11:46:34.961419 name 'user_data' is not defined
+INFO:root:Start AbituentBotVk! 2020-05-05 12:07:55.018684

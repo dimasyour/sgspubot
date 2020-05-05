@@ -3,7 +3,7 @@ import Constants
 
 slova = Constants
 
-conn = sqlite3.connect("base.db")
+conn = sqlite3.connect("src/base.db")
 print('БД подключена...')
 c = conn.cursor()
 

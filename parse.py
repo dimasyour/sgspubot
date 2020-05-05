@@ -65,5 +65,5 @@ def view_last_news():
         reader = csv.reader(f)
         for row in reader:
             newsList.append(row)
-        last_newsString = ''.join(newsList[0])  # ''
+        last_newsString = ''.join(newsList[1])  # ''
         return last_newsString
