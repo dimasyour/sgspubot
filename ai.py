@@ -6,12 +6,14 @@ import os
 import random
 import re
 import time
-
+from flask import Flask
 import apiai
 
 from func import *
 from keyboard import *
 from parse import *
+
+app = Flask(__name__)
 
 logging.basicConfig(filename="vkbot.log", level=logging.INFO)
 logging.info("Start AbituentBotVk! " + str(datetime.now()))
@@ -39,7 +41,7 @@ def ais(msg):
     response = responseJson['result']['fulfillment']['speech']  # Разбираем JSON
     return response
 
-
+@app.route('/', methods=["GET"])
 def main():
     while True:
         try:
@@ -313,5 +315,6 @@ def main():
             time.sleep(10)
 
 
-if __name__ == '__main__':
-    main()
+port = int(os.environ.get('PORT', 8080))
+if __name__ == "__main__":
+    app.run(debug=True, port=port)

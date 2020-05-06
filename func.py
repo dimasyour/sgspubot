@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import pandas as pd
 import vk_api
 from openpyxl import load_workbook
