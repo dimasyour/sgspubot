@@ -32,7 +32,7 @@ def random_chat_id():
 
 ans = Constants
 
-
+@app.route('/ai', methods=['POST', 'GET'])
 def ais(msg):
     request = apiai.ApiAI('5ccf3dbe9f594b97abe53c8332dc1e90').text_request()  # Токен API к DialogFlow
     request.lang = 'ru'  # Язык
@@ -41,7 +41,7 @@ def ais(msg):
     response = responseJson['result']['fulfillment']['speech']  # Разбираем JSON
     return response
 
-@app.route('/', methods=["GET"])
+@app.route('/', methods=['POST', 'GET'])
 def main():
     while True:
         try:

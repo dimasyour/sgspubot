@@ -1,4 +1,5 @@
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
+from dbworker import *
 
 
 def keyboard_start():
@@ -7,8 +8,36 @@ def keyboard_start():
     keyboard.add_line()
     keyboard.add_button('📒 Направления и специальности', VkKeyboardColor.POSITIVE)
     keyboard.add_line()
-    keyboard.add_button('📰 Новости с сайта СамГУПС', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('⏲ Когда звонок?', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('📅 Какая неделя?', VkKeyboardColor.POSITIVE)
     keyboard.add_line()
+    keyboard.add_button('📣 Показать объявления', VkKeyboardColor.PRIMARY)
+    keyboard.add_line()
+    keyboard.add_button('✅ Моё расписание', VkKeyboardColor.POSITIVE)
+    # keyboard.add_button('📰 Новости с сайта СамГУПС', VkKeyboardColor.POSITIVE)
+    # keyboard.add_line()
+    keyboard.add_openlink_button('Группа ВК', 'http://vk.com/pgsga')
+
+    return keyboard.get_keyboard()
+
+
+def keyboard_start_admin():
+    keyboard = VkKeyboard(False)
+    keyboard.add_button('📖 Мои баллы', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('📒 Направления и специальности', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('⏲ Когда звонок?', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('📅 Какая неделя?', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('✅ Моё расписание', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('📣 Показать объявления', VkKeyboardColor.PRIMARY)
+    keyboard.add_line()
+    keyboard.add_button('❗ Сделать объявление', VkKeyboardColor.PRIMARY)
+    keyboard.add_line()
+    # keyboard.add_button('📰 Новости с сайта СамГУПС', VkKeyboardColor.POSITIVE)
+    # keyboard.add_line()
     keyboard.add_openlink_button('Группа ВК', 'http://vk.com/pgsga')
 
     return keyboard.get_keyboard()
@@ -65,8 +94,8 @@ def keyboard_insert_ball():
 
 def keyboard_spec():
     keyboard = VkKeyboard(False)
-    keyboard.add_button('📒 Очная', VkKeyboardColor.PRIMARY)
-    keyboard.add_button('📒 Заочная', VkKeyboardColor.PRIMARY)
+    keyboard.add_button('📒 Бакалавриат', VkKeyboardColor.PRIMARY)
+    keyboard.add_button('📒 Магистратура', VkKeyboardColor.PRIMARY)
     keyboard.add_line()
     keyboard.add_button('Назад к главной', VkKeyboardColor.NEGATIVE)
 
@@ -80,4 +109,20 @@ def keyboard_choose_news():
     keyboard.add_line()
     keyboard.add_button('Назад к главной', VkKeyboardColor.NEGATIVE)
 
+    return keyboard.get_keyboard()
+
+
+def enable_keyboard_week(user_id):
+    keyboard = VkKeyboard(False)
+    keyboard.add_button(get_user_group(user_id), VkKeyboardColor.DEFAULT)
+    keyboard.add_line()
+    keyboard.add_button('ПН', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('ВТ', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('СР', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('ЧТ', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('ПТ', VkKeyboardColor.POSITIVE)
+    keyboard.add_button('СБ', VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('Вернуться назад к главной', VkKeyboardColor.NEGATIVE)
     return keyboard.get_keyboard()

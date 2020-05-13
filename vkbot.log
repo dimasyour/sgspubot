@@ -175,3 +175,67 @@ INFO:root:Start AbituentBotVk! 2020-05-05 13:28:34.921103
 INFO:root:Start AbituentBotVk! 2020-05-05 13:35:32.173004
 INFO:root:Start AbituentBotVk! 2020-05-05 13:41:50.762337
 INFO:root:Start AbituentBotVk! 2020-05-05 13:42:30.903426
+INFO:root:Start AbituentBotVk! 2020-05-06 21:18:14.224701
+INFO:werkzeug: * Restarting with stat
+INFO:root:Start AbituentBotVk! 2020-05-06 21:18:16.696412
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 223-601-978
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:root:Start AbituentBotVk! 2020-05-07 20:16:39.024380
+INFO:werkzeug: * Restarting with stat
+INFO:root:Start AbituentBotVk! 2020-05-07 20:16:42.957040
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 223-601-978
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:root:Start AbituentBotVk! 2020-05-07 20:20:06.099783
+ERROR:root:2020-05-07 20:20:17.182908 syntax error at or near ","
+LINE 1: ... (user_id, user_reg, user_admin, user_ball) VALUES (?,?,?,?)
+                                                                ^
+
+INFO:root:Start AbituentBotVk! 2020-05-07 20:27:34.338862
+ERROR:root:2020-05-07 20:27:44.523536 not enough arguments for format string
+INFO:root:Start AbituentBotVk! 2020-05-07 21:46:05.053899
+INFO:root:Start AbituentBotVk! 2020-05-07 21:47:20.208973
+ERROR:root:2020-05-07 21:47:32.562614 not all arguments converted during string formatting
+INFO:root:Start AbituentBotVk! 2020-05-07 21:49:48.058153
+ERROR:root:2020-05-07 21:49:59.432293 not all arguments converted during string formatting
+INFO:root:Start AbituentBotVk! 2020-05-07 21:57:35.644050
+INFO:root:Start AbituentBotVk! 2020-05-11 11:23:36.331857
+INFO:root:Start AbituentBotVk! 2020-05-11 11:43:05.241233
+INFO:root:Start AbituentBotVk! 2020-05-11 14:53:41.540981
+INFO:root:Start AbituentBotVk! 2020-05-11 14:55:36.605647
+INFO:root:Start AbituentBotVk! 2020-05-11 15:35:09.929375
+ERROR:root:2020-05-11 15:35:58.299240 [914] Message is too long
+INFO:root:Start AbituentBotVk! 2020-05-11 15:37:09.998054
+INFO:root:Start AbituentBotVk! 2020-05-11 15:40:14.361987
+INFO:root:Start AbituentBotVk! 2020-05-11 16:02:38.803141
+INFO:root:Start AbituentBotVk! 2020-05-11 16:04:42.091744
+INFO:root:Start AbituentBotVk! 2020-05-11 16:06:53.306409
+INFO:root:Start AbituentBotVk! 2020-05-11 16:11:15.921342
+INFO:root:Start AbituentBotVk! 2020-05-11 16:18:22.179867
+ERROR:root:2020-05-11 16:22:06.272888 type object 'datetime.datetime' has no attribute 'datetime'
+INFO:root:Start AbituentBotVk! 2020-05-11 16:22:54.685767
+INFO:root:Start AbituentBotVk! 2020-05-11 16:29:11.843927
+INFO:root:Start AbituentBotVk! 2020-05-11 16:38:48.127431
+INFO:root:Start AbituentBotVk! 2020-05-11 16:40:51.300815
+INFO:root:Start AbituentBotVk! 2020-05-11 16:44:34.958289
+INFO:root:Start AbituentBotVk! 2020-05-11 17:20:09.800880
+INFO:root:Start AbituentBotVk! 2020-05-11 17:21:13.424259
+ERROR:root:2020-05-11 17:21:33.260911 no such table: user
+INFO:root:Start AbituentBotVk! 2020-05-11 17:22:36.562990
+INFO:root:Start AbituentBotVk! 2020-05-11 17:24:50.946729
+INFO:root:Start AbituentBotVk! 2020-05-11 17:30:21.954718
+ERROR:root:2020-05-11 17:30:56.479395 keyboard_start() takes 0 positional arguments but 1 was given
+INFO:root:Start AbituentBotVk! 2020-05-11 17:32:42.153098
+ERROR:root:2020-05-11 17:35:43.946700 keyboard_start() takes 0 positional arguments but 1 was given
+INFO:root:Start AbituentBotVk! 2020-05-11 17:39:20.185860
+INFO:root:Start AbituentBotVk! 2020-05-11 17:40:49.184147
+INFO:root:Start AbituentBotVk! 2020-05-12 11:11:16.227221
+ERROR:root:2020-05-12 11:14:35.524916 can only concatenate str (not "NoneType") to str
+INFO:root:Start AbituentBotVk! 2020-05-12 11:18:40.751946
+INFO:root:Start AbituentBotVk! 2020-05-12 11:20:06.281207
+ERROR:root:2020-05-12 11:20:11.456187 local variable 'result' referenced before assignment
+INFO:root:Start AbituentBotVk! 2020-05-12 11:20:45.154594
+INFO:root:Start AbituentBotVk! 2020-05-12 11:23:11.309939
+INFO:root:Start AbituentBotVk! 2020-05-12 11:28:56.303095
+INFO:root:Start AbituentBotVk! 2020-05-12 11:31:16.898697
